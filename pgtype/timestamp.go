@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jackc/pgx/v5/internal/pgio"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/pgio"
 )
 
 const pgTimestampFormat = "2006-01-02 15:04:05.999999999"

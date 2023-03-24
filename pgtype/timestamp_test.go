@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	pgx "github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgtype"
-	"github.com/jackc/pgx/v5/pgxtest"
+	pgx "github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgtype"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/require"
 )
 
@@ -38,7 +38,7 @@ func TestTimestampCodec(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/v4/pgtype/pull/128
+// https://github.com/JoaquinGonzalez/pgx/v4/pgtype/pull/128
 func TestTimestampTranscodeBigTimeBinary(t *testing.T) {
 	defaultConnTestRunner.RunTest(context.Background(), t, func(ctx context.Context, t testing.TB, conn *pgx.Conn) {
 		in := &pgtype.Timestamp{Time: time.Date(294276, 12, 31, 23, 59, 59, 999999000, time.UTC), Valid: true}

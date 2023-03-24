@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5/internal/nbconn"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/nbconn"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

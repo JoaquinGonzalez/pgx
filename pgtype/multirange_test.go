@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"testing"
 
-	pgx "github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgtype"
-	"github.com/jackc/pgx/v5/pgxtest"
+	pgx "github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgtype"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/require"
 )
 

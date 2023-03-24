@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"testing"
 
-	pgx "github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgxtest"
+	pgx "github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/require"
 )
 
@@ -50,10 +50,10 @@ func TestJSONCodec(t *testing.T) {
 		{[]byte(nil), new([]byte), isExpectedEqBytes([]byte(nil))},
 		{nil, new([]byte), isExpectedEqBytes([]byte(nil))},
 
-		// Test sql.Scanner. (https://github.com/jackc/pgx/issues/1418)
+		// Test sql.Scanner. (https://github.com/JoaquinGonzalez/pgx/issues/1418)
 		{"42", new(sql.NullInt64), isExpectedEq(sql.NullInt64{Int64: 42, Valid: true})},
 
-		// Test driver.Valuer. (https://github.com/jackc/pgx/issues/1430)
+		// Test driver.Valuer. (https://github.com/JoaquinGonzalez/pgx/issues/1430)
 		{sql.NullInt64{Int64: 42, Valid: true}, new(sql.NullInt64), isExpectedEq(sql.NullInt64{Int64: 42, Valid: true})},
 	})
 
@@ -68,7 +68,7 @@ func TestJSONCodec(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/1273#issuecomment-1221414648
+// https://github.com/JoaquinGonzalez/pgx/issues/1273#issuecomment-1221414648
 func TestJSONCodecUnmarshalSQLNull(t *testing.T) {
 	defaultConnTestRunner.RunTest(context.Background(), t, func(ctx context.Context, t testing.TB, conn *pgx.Conn) {
 		// Slices are nilified
@@ -101,7 +101,7 @@ func TestJSONCodecUnmarshalSQLNull(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/1470
+// https://github.com/JoaquinGonzalez/pgx/issues/1470
 func TestJSONCodecPointerToPointerToString(t *testing.T) {
 	defaultConnTestRunner.RunTest(context.Background(), t, func(ctx context.Context, t testing.TB, conn *pgx.Conn) {
 		var s *string

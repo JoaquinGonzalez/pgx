@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/jackc/pgx/v5/pgxtest"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxpool"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -594,7 +594,7 @@ func TestPoolQueryRow(t *testing.T) {
 	assert.EqualValues(t, 1, stats.TotalConns())
 }
 
-// https://github.com/jackc/pgx/issues/677
+// https://github.com/JoaquinGonzalez/pgx/issues/677
 func TestPoolQueryRowErrNoRows(t *testing.T) {
 	t.Parallel()
 

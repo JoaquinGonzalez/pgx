@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgxtest"
-	"github.com/jackc/pgx/v5/tracelog"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
+	"github.com/JoaquinGonzalez/pgx/v5/tracelog"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -155,7 +155,7 @@ func TestLogQuery(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/1365
+// https://github.com/JoaquinGonzalez/pgx/issues/1365
 func TestLogQueryArgsHandlesUTF8(t *testing.T) {
 	t.Parallel()
 

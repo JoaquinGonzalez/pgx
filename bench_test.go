@@ -12,10 +12,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/internal/nbconn"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/nbconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgtype"
 	"github.com/stretchr/testify/require"
 )
 

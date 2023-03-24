@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"sync/atomic"
 
-	"github.com/jackc/pgx/v5/pgconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgconn"
 )
 
 var stmtCounter int64
@@ -46,7 +46,7 @@ func IsStatementInvalid(err error) bool {
 		return false
 	}
 
-	// https://github.com/jackc/pgx/issues/1162
+	// https://github.com/JoaquinGonzalez/pgx/issues/1162
 	//
 	// We used to look for the message "cached plan must not change result type". However, that message can be localized.
 	// Unfortunately, error code "0A000" - "FEATURE NOT SUPPORTED" is used for many different errors and the only way to

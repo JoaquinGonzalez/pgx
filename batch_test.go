@@ -7,9 +7,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgxtest"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgxtest"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -364,7 +364,7 @@ func TestConnSendBatchWithQueryRewriter(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/856
+// https://github.com/JoaquinGonzalez/pgx/issues/856
 func TestConnSendBatchWithPreparedStatementAndStatementCacheDisabled(t *testing.T) {
 	t.Parallel()
 

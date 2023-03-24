@@ -17,12 +17,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/internal/pgio"
-	"github.com/jackc/pgx/v5/internal/pgmock"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgproto3"
-	"github.com/jackc/pgx/v5/pgtype"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/pgio"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/pgmock"
+	"github.com/JoaquinGonzalez/pgx/v5/pgconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgproto3"
+	"github.com/JoaquinGonzalez/pgx/v5/pgtype"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -972,7 +972,7 @@ func TestConnExecParamsEmptySQL(t *testing.T) {
 	ensureConnValid(t, pgConn)
 }
 
-// https://github.com/jackc/pgx/issues/859
+// https://github.com/JoaquinGonzalez/pgx/issues/859
 func TestResultReaderValuesHaveSameCapacityAsLength(t *testing.T) {
 	t.Parallel()
 
@@ -1255,7 +1255,7 @@ func TestConnExecBatchPrecanceled(t *testing.T) {
 
 // Without concurrent reading and writing large batches can deadlock.
 //
-// See https://github.com/jackc/pgx/issues/374.
+// See https://github.com/JoaquinGonzalez/pgx/issues/374.
 func TestConnExecBatchHuge(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
@@ -2066,7 +2066,7 @@ func TestConnCancelRequest(t *testing.T) {
 	ensureConnValid(t, pgConn)
 }
 
-// https://github.com/jackc/pgx/issues/659
+// https://github.com/JoaquinGonzalez/pgx/issues/659
 func TestConnContextCanceledCancelsRunningQueryOnServer(t *testing.T) {
 	t.Parallel()
 
@@ -2161,7 +2161,7 @@ func TestConnCloseWhileCancellableQueryInProgress(t *testing.T) {
 	}
 }
 
-// https://github.com/jackc/pgx/issues/800
+// https://github.com/JoaquinGonzalez/pgx/issues/800
 func TestFatalErrorReceivedAfterCommandComplete(t *testing.T) {
 	t.Parallel()
 

@@ -13,11 +13,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5"
-	"github.com/jackc/pgx/v5/pgconn"
-	"github.com/jackc/pgx/v5/pgtype"
-	"github.com/jackc/pgx/v5/stdlib"
-	"github.com/jackc/pgx/v5/tracelog"
+	"github.com/JoaquinGonzalez/pgx/v5"
+	"github.com/JoaquinGonzalez/pgx/v5/pgconn"
+	"github.com/JoaquinGonzalez/pgx/v5/pgtype"
+	"github.com/JoaquinGonzalez/pgx/v5/stdlib"
+	"github.com/JoaquinGonzalez/pgx/v5/tracelog"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -317,7 +317,7 @@ func TestConnQuery(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/781
+// https://github.com/JoaquinGonzalez/pgx/issues/781
 func TestConnQueryDifferentScanPlansIssue781(t *testing.T) {
 	testWithAllQueryExecModes(t, func(t *testing.T, db *sql.DB) {
 		var s string
@@ -982,7 +982,7 @@ func TestQueryLifeCycle(t *testing.T) {
 	})
 }
 
-// https://github.com/jackc/pgx/issues/409
+// https://github.com/JoaquinGonzalez/pgx/issues/409
 func TestScanJSONIntoJSONRawMessage(t *testing.T) {
 	testWithAllQueryExecModes(t, func(t *testing.T, db *sql.DB) {
 		var msg json.RawMessage
@@ -1037,7 +1037,7 @@ func TestRegisterConnConfig(t *testing.T) {
 	assert.Equal(t, "select 1", l.data["sql"])
 }
 
-// https://github.com/jackc/pgx/issues/958
+// https://github.com/JoaquinGonzalez/pgx/issues/958
 func TestConnQueryRowConstraintErrors(t *testing.T) {
 	testWithAllQueryExecModes(t, func(t *testing.T, db *sql.DB) {
 		skipPostgreSQLVersionLessThan(t, db, 11)

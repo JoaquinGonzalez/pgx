@@ -577,7 +577,7 @@ func (plan *scanPlanFail) Scan(src []byte, dst any) error {
 	// It would be surprising to the caller to have to cast the NULL (e.g. `select null::int`). So try to figure out a
 	// compatible data type for dst and scan with that.
 	//
-	// See https://github.com/jackc/pgx/issues/1326
+	// See https://github.com/JoaquinGonzalez/pgx/issues/1326
 	if src == nil {
 		// As a horrible hack try all types to find anything that can scan into dst.
 		for oid := range plan.m.oidToType {
@@ -1450,7 +1450,7 @@ func (plan *encodePlanDriverValuer) Encode(value any, buf []byte) (newBuf []byte
 		return nil, err
 	}
 
-	// Prevent infinite loop. We can't encode this. See https://github.com/jackc/pgx/issues/1331.
+	// Prevent infinite loop. We can't encode this. See https://github.com/JoaquinGonzalez/pgx/issues/1331.
 	if reflect.TypeOf(value) == reflect.TypeOf(scannedValue) {
 		return nil, fmt.Errorf("tried to encode %v via encoding to text and scanning but failed due to receiving same type back", value)
 	}

@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jackc/pgx/v5/internal/sanitize"
+	"github.com/JoaquinGonzalez/pgx/v5/internal/sanitize"
 )
 
 func TestNewQuery(t *testing.T) {
@@ -89,7 +89,7 @@ func TestNewQuery(t *testing.T) {
 			expected: sanitize.Query{Parts: []sanitize.Part{"select 42, -- \\nis a Deep Thought's favorite number\r", 1}},
 		},
 		{
-			// https://github.com/jackc/pgx/issues/1380
+			// https://github.com/JoaquinGonzalez/pgx/issues/1380
 			sql:      "select 'hello w�rld'",
 			expected: sanitize.Query{Parts: []sanitize.Part{"select 'hello w�rld'"}},
 		},

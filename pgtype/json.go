@@ -27,7 +27,7 @@ func (c JSONCodec) PlanEncode(m *Map, oid uint32, format int16, value any) Encod
 
 	// Cannot rely on driver.Valuer being handled later because anything can be marshalled.
 	//
-	// https://github.com/jackc/pgx/issues/1430
+	// https://github.com/JoaquinGonzalez/pgx/issues/1430
 	case driver.Valuer:
 		return &encodePlanDriverValuer{m: m, oid: oid, formatCode: format}
 	}
@@ -92,7 +92,7 @@ func (JSONCodec) PlanScan(m *Map, oid uint32, format int16, target any) ScanPlan
 
 	// Cannot rely on sql.Scanner being handled later because scanPlanJSONToJSONUnmarshal will take precedence.
 	//
-	// https://github.com/jackc/pgx/issues/1418
+	// https://github.com/JoaquinGonzalez/pgx/issues/1418
 	case sql.Scanner:
 		return &scanPlanSQLScanner{formatCode: format}
 	}
@@ -100,7 +100,7 @@ func (JSONCodec) PlanScan(m *Map, oid uint32, format int16, target any) ScanPlan
 	// This is to fix **string scanning. It seems wrong to special case sql.Scanner and pointer to pointer, but it's not
 	// clear what a better solution would be.
 	//
-	// https://github.com/jackc/pgx/issues/1470
+	// https://github.com/JoaquinGonzalez/pgx/issues/1470
 	if wrapperPlan, nextDst, ok := TryPointerPointerScanPlan(target); ok {
 		if nextPlan := m.planScan(oid, format, nextDst); nextPlan != nil {
 			if _, failed := nextPlan.(*scanPlanFail); !failed {
