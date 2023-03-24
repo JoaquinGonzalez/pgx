@@ -7,6 +7,9 @@ import (
 	"fmt"
 )
 
+var InvalidUUID
+var InvalidUUIDLength
+
 type UUIDScanner interface {
 	ScanUUID(v UUID) error
 }
@@ -38,7 +41,8 @@ func parseUUID(src string) (dst [16]byte, err error) {
 		// dashes already stripped, assume valid
 	default:
 		// assume invalid.
-		return dst, fmt.Errorf("cannot parse UUID %v", src)
+        InvalidUUID = fmt.Errorf("cannot parse UUID %v", src)
+		return dst, InvalidUUID
 	}
 
 	buf, err := hex.DecodeString(src)
@@ -102,7 +106,8 @@ func (dst *UUID) UnmarshalJSON(src []byte) error {
 		return nil
 	}
 	if len(src) != 38 {
-		return fmt.Errorf("invalid length for UUID: %v", len(src))
+        InvalidUUIDLength = fmt.Errorf("invalid length for UUID: %v", len(src))
+		return InvalidUUIDLength
 	}
 	buf, err := parseUUID(string(src[1 : len(src)-1]))
 	if err != nil {
