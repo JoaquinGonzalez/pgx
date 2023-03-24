@@ -7,8 +7,8 @@ import (
 	"fmt"
 )
 
-var InvalidUUID
-var InvalidUUIDLength
+var InvalidUUID error
+var InvalidUUIDLength error
 
 type UUIDScanner interface {
 	ScanUUID(v UUID) error
